@@ -8,7 +8,26 @@ https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/ppstructure/docs/quic
 
 https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/whl.md
 
+
+
+### 模型
+不指定模型目录,自动下载
+```
+download https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_det_infer.tar to /root/.paddleocr/whl/det/ch/ch_PP-OCRv4_det_infer/ch_PP-OCRv4_det_infer.tar
+download https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_rec_infer.tar to /root/.paddleocr/whl/rec/ch/ch_PP-OCRv4_rec_infer/ch_PP-OCRv4_rec_infer.tar
+download https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar to /root/.paddleocr/whl/cls/ch_ppocr_mobile_v2.0_cls_infer/ch_ppocr_mobile_v2.0_cls_infer.tar
+```
+
+
 [模型下载地址](https://gitee.com/paddlepaddle/PaddleOCR/blob/dygraph/doc/doc_ch/models_list.md)
+
+server 模型下载地址:
+https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_det_server_infer.tar
+https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_rec_server_infer.tar
+https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_slim_infer.tar
+
+如果指定了rec_model_dir,需要指定识别模型字典路径: rec_char_dict_path,如:"./ppocr/utils/ppocr_keys_v1.txt"
+https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/ppocr/utils/ppocr_keys_v1.txt
 
 ### 安装PaddlePaddle
 
@@ -55,3 +74,9 @@ CMD ["mkdocs", "serve", "-a", "0.0.0.0:8000"]
 https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/whl.md#6-%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E
 
 
+### 获取access_token
+https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application
+```
+# 获取access_token，替换下列示例中的API Key与Secret Key
+curl 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=xx&client_secret=xx'
+```
