@@ -80,3 +80,8 @@ https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application
 # 获取access_token，替换下列示例中的API Key与Secret Key
 curl 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=xx&client_secret=xx'
 ```
+
+### 车牌识别
+https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/applications/%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB.md
+
+[数据集](https://aistudio.baidu.com/datasetdetail/101595) 的 [文件名规则说明](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/applications/%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB.md#31-%E6%95%B0%E6%8D%AE%E9%9B%86%E6%A0%87%E6%B3%A8%E8%A7%84%E5%88%99)
