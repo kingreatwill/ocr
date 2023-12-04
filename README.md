@@ -1,5 +1,38 @@
 # ocr
+## web框架
+https://sanic.dev/zh/guide/getting-started.html#%E5%AE%89%E8%A3%85-install
 
+上传文件
+```
+@app.route("/upload", methods=['POST'])
+async def upload(request):
+    allow_type = ['.jpg', '.png', '.gif'] # 允许上传的类型
+    file = request.files.get('file')
+    type = os.path.splitext(file.name)
+
+    if type[1] not in allow_type:
+        return json({"code": -1, "msg": "只允许上传.jpg.png.gif类型文件"})
+
+    name = str(uuid4())+type[1]
+    path = "/user/data/web/upload" # 这里注意path是绝对路径
+
+    async with aiofiles.open(path+"/"+name, 'wb') as f:
+        await f.write(file.body)
+    f.close()
+    return json({"code": 0, "msg": "上传成功", "data": {
+        "name": name,
+        "url": "/upload/"+name
+    }})
+```
+
+
+[输出文件](https://sanic.dev/zh/guide/advanced/streaming.html#%E6%96%87%E4%BB%B6%E6%B5%81-file-streaming)
+
+输出静态文件,这就需要用到 Sanic 静态文件代理
+```
+path = "/user/data/web/upload" # 这里注意path是绝对路径
+app.static("/upload", path)
+```
 
 ## 安装
 https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/quickstart.md
