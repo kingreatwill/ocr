@@ -1,4 +1,46 @@
 # ocr
+
+## 接口
+
+支持: GET,POST 
+参数(query,json body,form): img
+form参数上传文件:file
+
+http://127.0.0.1:8000/api/ocr?img=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.98082ae60a9486c72896fadfc031f64d%3Frik%3DZP3ZjE4Pifs6bA%26riu%3Dhttp%253a%252f%252fclub1.autoimg.cn%252falbum%252fuserphotos%252f2015%252f01%252f31%252f12%252f21463490-7054-glt8-tn5d-n204atmf9m7h.jpg%26ehk%3DBhw6%252f2sjzB7o6Jqds4SdQIUcKSVfgP0Bdt%252bYBomcZmE%253d%26risl%3D%26pid%3DImgRaw%26r%3D0
+
+识别结果:
+```
+[
+    [
+        [
+            [
+                [
+                    47.0,
+                    218.0
+                ],
+                [
+                    912.0,
+                    212.0
+                ],
+                [
+                    913.0,
+                    430.0
+                ],
+                [
+                    48.0,
+                    436.0
+                ]
+            ],
+            [
+                "\u4eacN\u00b78P8F8",
+                0.9932073950767517
+            ]
+        ]
+    ]
+]
+```
+
+
 ## web框架
 https://sanic.dev/zh/guide/getting-started.html#%E5%AE%89%E8%A3%85-install
 
