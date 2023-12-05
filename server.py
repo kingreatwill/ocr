@@ -1,3 +1,6 @@
+import os
+from uuid import uuid4
+import aiofiles
 from sanic import Sanic,Request,Blueprint
 from sanic.response import text,json
 from sanic.log import logger
@@ -30,17 +33,26 @@ async def ocr_request(request):
         description: img url
         required: false
     """
-    if request.args.get("img"):
-        logger.info(request.args.get("img"))
-    if request.json and request.json["img"]:
-        logger.info(request.json["img"])
-    if request.form.get("img"):
-        logger.info(request.form.get("img"))
+    img = "./imgs/11.jpg"
+    file_path = ""
     file = request.files.get('file') # 如果支持上传多个request.files.getlist('file')
     if file:
-        logger.info(file.name)
+        file_path = "/tmp/"+str(uuid4())+file.name
+        async with aiofiles.open(file_path, 'wb') as f:
+            await f.write(file.body)
+        f.close()
+        img = file_path
+    elif request.args.get("img"):
+        img = request.args.get("img")
+    elif request.json and request.json["img"]:
+        img = request.json["img"]
+    elif request.form.get("img"):
+        img = request.form.get("img")
+    logger.info("img: %s", img)
     ocr = PaddleOCR(use_angle_cls=True, lang="ch")
-    result = ocr.ocr("./imgs/11.jpg", cls=True)
+    result = ocr.ocr(img, cls=True)
+    if file_path:
+        os.remove(file_path)
     return json(result)
 
 @app.get("/")
