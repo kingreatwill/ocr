@@ -2,7 +2,14 @@
 ## web框架
 https://sanic.dev/zh/guide/getting-started.html#%E5%AE%89%E8%A3%85-install
 
-上传文件
+```
+pip install sanic==23.6.0 sanic-ext==23.6.0
+```
+> redoc:http://localhost:8000/docs {/redoc} or swagger: http://localhost:8000/docs/swagger
+> swagger配置: https://sanic.dev/zh/plugins/sanic-ext/openapi/ui.html#%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9-config-options
+
+### 上传文件
+1. 上传文件
 ```
 @app.route("/upload", methods=['POST'])
 async def upload(request):
@@ -25,14 +32,17 @@ async def upload(request):
     }})
 ```
 
+### 输出文件
+1. [输出文件](https://sanic.dev/zh/guide/advanced/streaming.html#%E6%96%87%E4%BB%B6%E6%B5%81-file-streaming)
 
-[输出文件](https://sanic.dev/zh/guide/advanced/streaming.html#%E6%96%87%E4%BB%B6%E6%B5%81-file-streaming)
-
-输出静态文件,这就需要用到 Sanic 静态文件代理
+2. 输出静态文件,这就需要用到 Sanic 静态文件代理
 ```
 path = "/user/data/web/upload" # 这里注意path是绝对路径
 app.static("/upload", path)
 ```
+### 其它
+> 进阶 [Worker 管理器 | Sanic 框架](https://zhuanlan.zhihu.com/p/571588906)
+> [Worker Manager](https://sanic.dev/en/guide/deployment/manager.html#how-sanic-server-starts-processes)
 
 ## 安装
 https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/quickstart.md
