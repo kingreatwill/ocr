@@ -41,8 +41,13 @@ path = "/user/data/web/upload" # 这里注意path是绝对路径
 app.static("/upload", path)
 ```
 ### 其它
-> 进阶 [Worker 管理器 | Sanic 框架](https://zhuanlan.zhihu.com/p/571588906)
-> [Worker Manager](https://sanic.dev/en/guide/deployment/manager.html#how-sanic-server-starts-processes)
+进阶 [Worker 管理器 | Sanic 框架](https://zhuanlan.zhihu.com/p/571588906)
+
+[Worker Manager](https://sanic.dev/en/guide/deployment/manager.html#how-sanic-server-starts-processes)
+
+[运行](https://sanic.dev/en/guide/deployment/running.html)
+
+[参数获取](https://sanic.dev/en/guide/basics/request.html#form)
 
 ## 安装
 https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/quickstart.md
